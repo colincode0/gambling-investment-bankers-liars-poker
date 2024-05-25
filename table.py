@@ -1,6 +1,10 @@
 import random
 from collections import defaultdict
 import pandas as pd
+from colorama import Fore, Back, Style, init
+
+# Initialize colorama
+init(autoreset=True)
 
 def monte_carlo_simulation(num_simulations, num_players, threshold):
     num_digits = num_players * 8  # Each player has 8 digits
@@ -14,6 +18,18 @@ def monte_carlo_simulation(num_simulations, num_players, threshold):
             success_count += 1
     
     return success_count / num_simulations
+
+def style_probability(probability):
+    if probability > 0.75:
+        return Fore.BLACK + f"{probability:<7.4f}" + Style.RESET_ALL
+    elif probability > 0.50:
+        return Fore.BLACK + Back.GREEN + f"{probability:<7.4f}" + Style.RESET_ALL
+    elif probability == 0.50:
+        return Fore.BLACK + Back.YELLOW + f"{probability:<7.4f}" + Style.RESET_ALL
+    elif probability < 0.25:
+        return Fore.BLACK + f"{probability:<7.4f}" + Style.RESET_ALL
+    else:
+        return Fore.BLACK + Back.RED + f"{probability:<7.4f}" + Style.RESET_ALL
 
 def main():
     # Input parameters
@@ -33,9 +49,16 @@ def main():
     # Convert to DataFrame for better visualization
     probabilities_df = pd.DataFrame(probabilities).T
 
-    # Display the result as a table
+    # Display the result as a styled table
     print("\nProbability Matrix:")
-    print(probabilities_df)
+    
+    # Print the header row with accurate spacing
+    header_row = "      " + " ".join([f"{i:<7}" for i in range(1, max_threshold + 1)])
+    print(header_row)
+    
+    for index, row in probabilities_df.iterrows():
+        styled_row = [style_probability(value) for value in row]
+        print(f"{int(index):02d}  ", " ".join(styled_row))
 
     # Optionally, save to a file
     probabilities_df.to_csv("probability_matrix.csv", index=True)
