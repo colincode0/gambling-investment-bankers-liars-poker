@@ -31,16 +31,18 @@ def parallel_simulation(num_simulations, num_players, threshold, num_workers):
     return sum(results) / len(results)
 
 def style_probability(probability):
-    if probability > 0.75:
-        return Fore.BLACK + f"{probability:<7.4f}" + Style.RESET_ALL
-    elif probability > 0.50:
+    if probability >= 0.90:
+        return Fore.BLACK + Back.MAGENTA + f"{probability:<7.4f}" + Style.RESET_ALL
+    elif probability >= 0.60:
         return Fore.BLACK + Back.GREEN + f"{probability:<7.4f}" + Style.RESET_ALL
-    elif probability == 0.50:
+    elif probability >= 0.50:
         return Fore.BLACK + Back.YELLOW + f"{probability:<7.4f}" + Style.RESET_ALL
-    elif probability < 0.25:
-        return Fore.BLACK + f"{probability:<7.4f}" + Style.RESET_ALL
-    else:
+    elif probability >= 0.40:
+        return Fore.BLACK + Back.CYAN + f"{probability:<7.4f}" + Style.RESET_ALL
+    elif probability >= 0.10:
         return Fore.BLACK + Back.RED + f"{probability:<7.4f}" + Style.RESET_ALL
+    else:
+        return Fore.BLACK + f"{probability:<7.4f}" + Style.RESET_ALL
 
 def plain_probability(probability):
     return f"{probability:<7.4f}"
