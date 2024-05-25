@@ -16,7 +16,8 @@ def monte_carlo_simulation(num_simulations, num_players, threshold):
 
 def main():
     # Input parameters
-    num_simulations = int(input("Enter the number of simulations: "))
+    # num_simulations = int(input("Enter the number of simulations: "))
+    num_simulations = 100000
     num_players = int(input("Enter the number of players: "))
     threshold = int(input("Enter the number frequency threshold: "))
 
