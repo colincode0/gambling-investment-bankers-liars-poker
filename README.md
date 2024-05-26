@@ -1,10 +1,10 @@
-## This repo contains a Monte Carlo simulator, along with the rules for a modified version of the game liars poker.
+## This repository includes a Liar's Poker Monte Carlo simulator and the rules for a modified version of the game Liar's Poker.
 ![aaaa](https://github.com/colindharrington/gambling-investment-bankers-liars-poker/assets/42985430/8f22795d-cf44-48a9-b48e-37443675fb80)
 
 **Vertical axis** = x number of players  
 **Horizontal axis** = probability of x of the same number amongst all bills
 
-The user is able to specify:
+Python file allows user to specify:
 - Number of simulations
 - Number of players
 - Number frequency threshold
@@ -63,8 +63,13 @@ If there are three or more L's, Player 3 pays Player 2 two dollars.
 - A player can make side bets on another player:
   - *"I will bet anyone one dollar that Player 3 doesn't win this next hand."*
 - A player must pay another player when they lose, unless the two players can agree on terms
-  - *"I will owe you one dollar, and keep this dollar for now. If I still have money in three turns, I will give you two dollars"*
+  - *"I will owe you one dollar, and keep this dollar I would have given up as I lost the bet. If I still have money in three turns, I will give you two dollars"*
 - A player might negociate out of a default to stay in the game for longer
   - *"I can't pay the full three dollars right now, and will default. How about I give you one dollar now and two dollars in two turns?"*
 - A player can pool resources with another player to challenge a high bet:
   - *"Let's pool our money to challenge Player 3's bet. If we win, we split the winnings. If we lose, we both contribute to the payment."*
+- A player can offer a debt as collateral to secure a loan:
+  - *"I'll give you my debt from Player 2 as collateral for the one-dollar loan. You can collect from them if I don't repay you in three turns."*
+- A player can sell their position/turn as part of negotiations:
+  - *(The next turn still goes to the person left of the player who sold the turn position)*
+  - *"I'll give my turn to any other player for the cost of one dollar."*
