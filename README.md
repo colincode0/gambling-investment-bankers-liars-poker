@@ -1,4 +1,5 @@
 ## This repository includes a Liar's Poker Monte Carlo simulator and the rules for a modified version of the game Liar's Poker.
+--------------------------------------------
 ![aaaa](https://github.com/colindharrington/gambling-investment-bankers-liars-poker/assets/42985430/8f22795d-cf44-48a9-b48e-37443675fb80)
 
 **Vertical axis** = x number of players  
